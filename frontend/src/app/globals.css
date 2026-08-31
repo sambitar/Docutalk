@@ -1,0 +1,58 @@
+@import "../styles/tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: var(--color-text);
+  background: var(--color-bg);
+  background-image: var(--gradient-hero);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+@layer components {
+  .btn-brand {
+    @apply inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold transition;
+    color: var(--color-text-on-brand);
+    background: var(--gradient-metal-button);
+    border: 1px solid var(--color-brand-hover);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-brand);
+  }
+
+  .btn-brand:hover {
+    background: var(--color-brand-hover);
+  }
+
+  .btn-metal {
+    @apply inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold transition;
+    color: var(--color-text);
+    background: var(--gradient-metal);
+    border: 1px solid var(--color-border-metal);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-metal);
+  }
+
+  .input-metal {
+    @apply w-full px-3 py-2 text-sm outline-none transition;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-metal);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-metal);
+  }
+
+  .input-metal:focus {
+    border-color: var(--color-brand-focus);
+    box-shadow: 0 0 0 3px var(--color-brand-subtle);
+  }
+
+  .surface-metal {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-metal);
+  }
+}
