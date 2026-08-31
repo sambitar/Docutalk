@@ -1,0 +1,11 @@
+#!/bin/sh
+# Strip Cursor (and similar) co-author trailers from commit messages.
+# Used when core.hooksPath points at .githooks in this repo.
+
+MSG_FILE="$1"
+[ -f "$MSG_FILE" ] || exit 0
+
+sed -i '/^[Cc]o-[Aa]uthored-[Bb]y:.*cursoragent@cursor\.com/d' "$MSG_FILE"
+sed -i '/^[Cc]o-[Aa]uthored-[Bb]y:.*[Cc]ursor.*cursor\.com/d' "$MSG_FILE"
+# Remove trailing blank lines left behind
+sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' "$MSG_FILE" 2>/dev/null || true
